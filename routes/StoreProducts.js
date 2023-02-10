@@ -71,5 +71,12 @@ route.get('/products/data', async (req, res)=>{
     res.send(mydata)
 })
 
+route.get('/products/search/:searchKey', async (req, res)=>{
+    var regex = new RegExp(req.params.searchKey, 'i')
+    const searchProducts = await Product.find({name:regex})
+    res.send(searchProducts)
+    // const searchProducts = await Product.find()
+    // res.send(searchProducts)
+})
 
 module.exports = route
