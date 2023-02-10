@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
-const url = 'mongodb+srv://admin-ankit:Test123@cluster0.0takyqv.mongodb.net/dsDB'
 // const  url = "mongodb://0.0.0.0:27017/dsDB"
+const  url = process.env.MONGODB_url
 
 function Connetion(){
     mongoose.connect(url, (err)=>{

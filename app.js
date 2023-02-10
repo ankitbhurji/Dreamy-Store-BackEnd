@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const bodyParser = require("body-parser");
@@ -16,14 +17,6 @@ app.use('/api/storeproducts', Discover)
 
 
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-
-app.get('/home', (req, res)=>{
-    res.send('this is test')
-})
-
 
 
 app.get("/health", (_, res)=>{
@@ -41,7 +34,8 @@ app.use((err, req, res, next)=>{
     res.status(500).send("SOMETHING WENT WRONG!")
 });
 
-const port = 3001;
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+const PORT = process.env.PORT;
+const HOST = process.env.HOST;
+app.listen(PORT, () => {
+  console.log(`Example app listening at http://${HOST}:${PORT}`);
 });
