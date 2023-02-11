@@ -48,6 +48,7 @@ route.get('/products/data', async (req, res)=>{
     var cmp={}
     var rs={}
     var clr={}
+    var shipping={}
 
     if(req.query.category){
          ctg = {category: req.query.category}
@@ -61,13 +62,16 @@ route.get('/products/data', async (req, res)=>{
     if(req.query.color){
          clr = {colours:req.query.color}
     }
-
+    if(req.query.shipping){
+        shipping={freeShipping:req.query.shipping}
+    }
+   
 
     const mydata = await Product.find({
-        '$and':[ {...ctg}, {...cmp}, {...clr}, {...rs}]
+        '$and':[ {...ctg}, {...cmp}, {...clr}, {...rs}, {...shipping}]
     }).sort({...shortKey})    
 
-    // console.log(req.query.short)
+    
     res.send(mydata)
 })
 

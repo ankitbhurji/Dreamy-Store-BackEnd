@@ -23,7 +23,7 @@ const productSchema = {
     // colours: [{id:{type:Number}, colours:{type:String}}],
     // colours: [Array],
     colours:{type:String},
-    freeShiping: {type:String, required:true, unique:true},
+    freeShipping: {type:String},
 
     // ratings:[{rating:String}],
     // comments: {type:String, required:true, unique:true}
