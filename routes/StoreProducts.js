@@ -62,8 +62,10 @@ route.get('/products/data', async (req, res)=>{
     if(req.query.color){
          clr = {colours:req.query.color}
     }
-    if(req.query.shipping){
+    if(req.query.shipping=='true'){
         shipping={freeShipping:req.query.shipping}
+    }else{
+        shipping={}
     }
    
 
