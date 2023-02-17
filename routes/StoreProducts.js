@@ -85,4 +85,9 @@ route.get('/products/search/:searchKey', async (req, res)=>{
     // res.send(searchProducts)
 })
 
+route.get('/product/:id', async(req, res)=>{
+    var product = await Product.find({_id:req.params.id})
+    res.send(product)
+})
+
 module.exports = route
